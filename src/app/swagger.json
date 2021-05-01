@@ -48,7 +48,7 @@
       }
     },
     "/auth/checkpassword": {
-      "post": {
+      "get": {
         "tags": ["user"],
         "summary": "check user password",
         "description": "check user password with basic auth",
