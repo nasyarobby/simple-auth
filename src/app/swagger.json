@@ -46,6 +46,40 @@
         },
         "deprecated": false
       }
+    },
+    "/auth/checkpassword": {
+      "post": {
+        "tags": ["user"],
+        "summary": "check user password",
+        "description": "register new user",
+        "operationId": "CheckPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": ["username", "password"],
+                "properties": {
+                  "username": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
     }
   },
   "components": {

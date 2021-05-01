@@ -1,5 +1,6 @@
-const { RegisterUser } = require('./Auth');
+const { RegisterUser, CheckPassword } = require('./Auth');
 
 module.exports = {
   RegisterUser,
+  CheckPassword,
 };
