@@ -10,6 +10,8 @@ const Server = new DJPApi({
   address,
   specificationFilePath,
   service,
-  logger: DJPApi.PRESETS.logger[process.env.NODE_ENV || 'development'],
+  fastifyConfig: {
+    logger: { level: 'trace', prettyPrint: { translateTime: 'SYS:yy-mm-dd HH:MM:ss o' } },
+  },
 });
 Server.start();
