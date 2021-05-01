@@ -34,7 +34,7 @@ const CheckPassword = async (req, res) => {
     if (success) return res.status(200).send();
   }
 
-  res.status(404).send();
+  return res.status(404).send();
 };
 
 module.exports.RegisterUser = async function RegisterUser(req, res) {
