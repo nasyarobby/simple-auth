@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    # "title": "Fastify",
-    # "description": "API Description",
-    # "version": "1.0.0"
+    "title": "Simple Auth",
+    "description": "Simple auth api",
+    "version": "1.0.0"
   },
   "servers": [
     {
@@ -11,12 +11,27 @@
     }
   ],
   "paths": {
-    "/": {
-      "get": {
-        "tags": ["root"],
-        "summary": "root folder",
-        "description": "Get API status",
-        "operationId": "getRoot",
+    "/auth/register": {
+      "post": {
+        "tags": ["user"],
+        "summary": "register user",
+        "description": "register new user",
+        "operationId": "RegisterUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": ["username", "password"],
+                "properties": {
+                  "username": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" },
+                  "name": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Result",

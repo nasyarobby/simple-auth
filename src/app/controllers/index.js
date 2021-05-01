@@ -1,5 +1,5 @@
-const getRoot = require('./root/get');
+const { RegisterUser } = require('./Auth');
 
 module.exports = {
-  getRoot,
+  RegisterUser,
 };

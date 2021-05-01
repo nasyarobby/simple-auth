@@ -21,7 +21,11 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "djp-api": "^1.2.0",
-    "ioredis": "^4.24.2"
+    "ioredis": "^4.24.2",
+    "knex": "^0.95.4",
+    "objection": "^2.2.15",
+    "pg": "^8.6.0"
   }
 }
