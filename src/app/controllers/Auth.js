@@ -27,7 +27,7 @@ const checkPassword = (password, hash) =>
 const CheckPassword = async (req, res) => {
   const authHeader = auth(req);
 
-  if (!authHeader) return res.status(400).send();
+  if (!authHeader) return res.status(401).send();
 
   const user = await User.query().findOne({ username: authHeader.name });
 
@@ -39,7 +39,7 @@ const CheckPassword = async (req, res) => {
     if (success) return res.status(200).send();
   }
 
-  return res.status(404).send();
+  return res.status(401).send();
 };
 
 module.exports.RegisterUser = async function RegisterUser(req, res) {
