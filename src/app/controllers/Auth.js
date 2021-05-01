@@ -26,6 +26,9 @@ const checkPassword = (password, hash) =>
 
 const CheckPassword = async (req, res) => {
   const authHeader = auth(req);
+
+  if (!authHeader) return res.status(400).send();
+
   const user = await User.query().findOne({ username: authHeader.name });
 
   req.log.trace({ input: authHeader, user: user || 'NOT FOUND' });
