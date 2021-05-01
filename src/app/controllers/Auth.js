@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const auth = require('basic-auth');
 
 const User = require('../models/User');
 
@@ -14,6 +15,7 @@ const hashPassword = (password) =>
       });
     });
   });
+
 const checkPassword = (password, hash) =>
   new Promise((res, rej) => {
     bcrypt.compare(password, hash, (err, success) => {
@@ -23,13 +25,13 @@ const checkPassword = (password, hash) =>
   });
 
 const CheckPassword = async (req, res) => {
-  const { username, password } = req.body;
-  const user = await User.query().findOne({ username });
+  const authHeader = auth(req);
+  const user = await User.query().findOne({ username: authHeader.name });
 
-  req.log.trace({ reqBody: req.body, user: user || 'NOT FOUND' });
+  req.log.trace({ input: authHeader, user: user || 'NOT FOUND' });
 
   if (user) {
-    const success = await checkPassword(password, user.password);
+    const success = await checkPassword(authHeader.pass, user.password);
     req.log.trace({ checkPassword: success });
     if (success) return res.status(200).send();
   }

@@ -21,6 +21,7 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "basic-auth": "^2.0.1",
     "bcryptjs": "^2.4.3",
     "djp-api": "^1.2.0",
     "ioredis": "^4.24.2",
