@@ -51,7 +51,7 @@
       "post": {
         "tags": ["user"],
         "summary": "check user password",
-        "description": "register new user",
+        "description": "check user password with basic auth",
         "operationId": "CheckPassword",
         "security": [{ "basicAuth": [] }],
         "responses": {
