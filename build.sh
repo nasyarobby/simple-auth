@@ -4,8 +4,8 @@
 # jika tidak diset akan otomatis ke 10.244.65.16:16379
 # export REGISTRY=localhost:5000
 
-PARENT_DIR=$(basename "${PWD%/*}")
-CURRENT_DIR="${PWD##*/}"
+PARENT_DIR="nsrb"
+CURRENT_DIR="auth"
 IMAGE_NAME="$PARENT_DIR/$CURRENT_DIR"
 if [ -z "$1" ]
 then
@@ -19,7 +19,7 @@ TAG=$1
 fi
 if [ -z "${REGISTRY}" ]
 then
-REGISTRY="10.244.65.16:16379"
+REGISTRY="docker.devnesia.org"
 fi
 
 echo -e "REGISTRY \e[33m$REGISTRY\e[0m
