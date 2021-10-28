@@ -11,7 +11,10 @@ const Server = new DJPApi({
   specificationFilePath,
   service,
   fastifyConfig: {
-    logger: { level: 'trace', prettyPrint: { translateTime: 'SYS:yy-mm-dd HH:MM:ss o' } },
+    logger: {
+      level: process.env.LOG_LEVEL || 'info',
+      prettyPrint: { translateTime: 'SYS:yy-mm-dd HH:MM:ss o' },
+    },
   },
 });
 Server.start();
