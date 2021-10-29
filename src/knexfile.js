@@ -4,10 +4,10 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host: 'db',
-      database: 'taxval',
-      user: 'taxval',
-      password: 'taxval',
+      host: process.env.DB_HOST_DEV || 'db',
+      database: process.env.DB_NAME_DEV || 'taxval',
+      user: process.env.DB_USER_DEV || 'taxval',
+      password: process.env.DB_PASSWORD_DEV || 'taxval',
     },
     pool: {
       min: 2,
@@ -21,9 +21,10 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
+      host: process.env.DB_HOST_PROD || 'db',
+      database: process.env.DB_NAME_PROD || 'taxval',
+      user: process.env.DB_USER_PROD || 'taxval',
+      password: process.env.DB_PASSWORD_PROD || 'taxval',
     },
     pool: {
       min: 2,

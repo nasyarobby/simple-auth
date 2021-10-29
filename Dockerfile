@@ -3,7 +3,7 @@ RUN npm -g install pm2
 
 WORKDIR /server
 COPY src/package*.json ./
-RUN yarn install --production
+RUN yarn install --production --ignore-engines
 COPY src/ /server
 EXPOSE 8080
 CMD ["pm2-runtime", "ecosystem.config.js"]
